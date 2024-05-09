@@ -1,9 +1,15 @@
 <template>
-  <header class="py-4 flex items-center justify-between">
-    <h1 class="flex gap-2 text-xl items-center font-semibold">
-      <span class="bg-green-600 p-1 rounded-md text-white">GREEN</span>
-      <span class="text-green-600">MOVIES</span>
-    </h1>
+  <header
+    class="py-4 flex sm:flex-row items-center sm:justify-between flex-col justify-center gap-4 sm:gap-0"
+  >
+    <NuxtLink to="/">
+      <h1
+        class="flex gap-2 text-xl items-center font-semibold justify-center sm:justify-normal"
+      >
+        <span class="bg-green-600 p-1 rounded-md text-white">GREEN</span>
+        <span class="text-green-600">MOVIES</span>
+      </h1>
+    </NuxtLink>
     <div class="flex gap-12 items-center">
       <nav class="flex gap-12 items-center text-md">
         <NuxtLink to="/" class="hover:underline">Latest</NuxtLink>
