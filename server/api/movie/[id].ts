@@ -11,7 +11,5 @@ export default defineEventHandler(async (event) => {
     },
   });
 
-  return {
-    movie: response,
-  };
+  return response;
 });

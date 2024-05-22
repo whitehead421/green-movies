@@ -1,6 +1,6 @@
 <template>
   <header
-    class="py-4 flex sm:flex-row items-center sm:justify-between flex-col justify-center gap-4 sm:gap-0"
+    class="py-4 flex md:flex-row items-center sm:justify-between flex-col justify-center gap-4 md:gap-0"
   >
     <NuxtLink to="/">
       <h1
@@ -12,8 +12,8 @@
     </NuxtLink>
     <div class="flex gap-12 items-center">
       <nav class="flex gap-12 items-center text-md">
-        <NuxtLink to="/" class="hover:underline">Latest</NuxtLink>
-        <NuxtLink to="/genres" class="hover:underline">Genre</NuxtLink>
+        <NuxtLink to="/" class="hover:underline">Home</NuxtLink>
+        <NuxtLink to="/popularity" class="hover:underline">Popularity</NuxtLink>
         <NuxtLink to="/movies" class="hover:underline">Movie</NuxtLink>
         <NuxtLink to="/series" class="hover:underline">TV Series</NuxtLink>
       </nav>
@@ -22,7 +22,3 @@
     </div>
   </header>
 </template>
-
-<script setup lang="ts"></script>
-
-<style scoped></style>
