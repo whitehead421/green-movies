@@ -11,7 +11,7 @@
           <NuxtImg
             placeholder
             :src="buildImg(movie.poster_path)"
-            alt="movie.title"
+            :alt="movie.title"
             class="w-full h-full object-contain hover:scale-105 transition-transform duration-300 ease-in-out"
           />
         </div>
