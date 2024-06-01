@@ -1,7 +1,9 @@
 <template>
-  <div class="container mx-auto px-8">
+  <div class="container flex flex-col mx-auto px-8 min-h-screen">
     <AppHeader />
-    <slot />
+    <main class="flex-grow">
+      <slot />
+    </main>
     <AppFooter />
   </div>
 </template>

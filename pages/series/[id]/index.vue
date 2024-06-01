@@ -80,15 +80,15 @@
 <script setup>
 const route = useRoute();
 
-const { data } = await useFetch(`/api/movie/${route.params.id}`);
+const { data } = await useFetch(`/api/tv-series/${route.params.id}`);
 const { data: credits } = await useFetch(
-  `/api/movie/${route.params.id}/credits`
+  `/api/tv-series/${route.params.id}/credits`
 );
 
 if (!data.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Movie not found",
+    statusMessage: "Series not found",
   });
 }
 </script>
