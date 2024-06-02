@@ -21,5 +21,5 @@
 </template>
 
 <script setup>
-const { data } = await useFetch("/api/now_playing");
+const { data } = await useFetch("/api/movie");
 </script>
