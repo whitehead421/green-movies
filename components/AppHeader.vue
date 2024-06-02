@@ -12,9 +12,8 @@
     </NuxtLink>
     <div class="flex gap-12 items-center">
       <nav class="flex gap-12 items-center text-md">
-        <NuxtLink to="/" class="hover:underline">Home</NuxtLink>
         <NuxtLink to="/charts" class="hover:underline">Charts</NuxtLink>
-        <NuxtLink to="/movies" class="hover:underline">Movie</NuxtLink>
+        <NuxtLink to="/movies" class="hover:underline">Movies</NuxtLink>
         <NuxtLink to="/tv-series" class="hover:underline">TV Series</NuxtLink>
       </nav>
       <div class="border-r border-gray h-6"></div>

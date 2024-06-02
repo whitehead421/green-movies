@@ -39,7 +39,12 @@
           <p class="text-xs text-wrap w-min text-center">{{ cast.name }}</p>
         </li>
       </ul>
-      <h2 class="text-xs text-gray-800 tracking-wider uppercase font-semibold">
+      <h2
+        v-if="
+          credits.crew.filter((crew) => crew.job === 'Director')?.length > 0
+        "
+        class="text-xs text-gray-800 tracking-wider uppercase font-semibold"
+      >
         Directors
       </h2>
       <ul class="flex gap-4">
