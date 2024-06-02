@@ -80,6 +80,50 @@
       </ul>
     </div>
   </div>
+  <div class="mt-4">
+    <h2
+      class="text-xs text-gray-800 tracking-wider uppercase font-semibold my-2"
+    >
+      You may also like
+    </h2>
+    <div class="flex gap-4">
+      <NuxtLink
+        v-for="recommendation in recommendations.slice(0, 8)"
+        :key="recommendation.id"
+        :to="`/series/${recommendation.id}`"
+        class="flex flex-col gap-2"
+      >
+        <NuxtImg
+          placeholder
+          :src="buildImg(recommendation.poster_path)"
+          :alt="recommendation.title"
+          class="w-48 h-full object-cover rounded-md"
+        />
+        <p class="text-xs text-wrap w-40">{{ recommendation.title }}</p>
+      </NuxtLink>
+    </div>
+  </div>
+  <h2
+    class="text-xs text-gray-800 tracking-wider uppercase font-semibold mt-8 mb-4"
+  >
+    Lists that include this tv serie
+  </h2>
+  <table class="whitespace-nowrap overflow-auto w-full">
+    <thead class="text-left border text-green-500">
+      <tr>
+        <th class="px-2">List</th>
+        <th class="px-2">Favorite Count</th>
+        <th class="px-2">Item Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="list in lists" :key="list.id" class="border px-2 text-sm">
+        <td class="px-2">{{ list.name }}</td>
+        <td class="px-2">{{ list.favorite_count }}</td>
+        <td class="px-2">{{ list.item_count }}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <script setup>
@@ -88,6 +132,12 @@ const route = useRoute();
 const { data } = await useFetch(`/api/tv-series/${route.params.id}`);
 const { data: credits } = await useFetch(
   `/api/tv-series/${route.params.id}/credits`
+);
+const { data: recommendations } = await useFetch(
+  `/api/tv-series/${route.params.id}/recommendation`
+);
+const { data: lists } = await useFetch(
+  `/api/tv-series/${route.params.id}/list`
 );
 
 if (!data.value) {

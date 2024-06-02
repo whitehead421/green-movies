@@ -3,9 +3,9 @@ interface IResponse {
 }
 
 export default defineEventHandler(async (event) => {
-  const BASE_URL = process.env.TMDB_API_BASE_URL;
+  const movie_id = getRouterParam(event, "id");
 
-  const { movie_id } = getQuery(event);
+  const BASE_URL = process.env.TMDB_API_BASE_URL;
 
   const response: IResponse = await $fetch(
     `${BASE_URL}/movie/${movie_id}/recommendations`,
@@ -18,7 +18,5 @@ export default defineEventHandler(async (event) => {
     }
   );
 
-  return {
-    data: response.results,
-  };
+  return response.results.filter((movie) => movie.poster_path !== null);
 });
