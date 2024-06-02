@@ -22,5 +22,4 @@
 
 <script setup>
 const { data } = await useFetch("/api/tv-series");
-console.log(data.value);
 </script>

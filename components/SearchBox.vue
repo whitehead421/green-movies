@@ -76,7 +76,6 @@ const getSearchResults = () => {
           `/api/search?searchTerm=${searchTerm.value}`
         );
         results.value = data.value;
-        console.log(results.value);
       } catch {
         searchError.value = true;
       }
