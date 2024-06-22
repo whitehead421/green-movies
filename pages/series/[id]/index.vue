@@ -108,7 +108,7 @@
   >
     Lists that include this tv serie
   </h2>
-  <table class="whitespace-nowrap overflow-auto w-full">
+  <table v-if="lists.length > 0" class="whitespace-nowrap overflow-auto w-full">
     <thead class="text-left border text-green-500">
       <tr>
         <th class="px-2">List</th>
@@ -124,6 +124,9 @@
       </tr>
     </tbody>
   </table>
+  <div v-else class="text-center text-gray-600">
+    <p>No list found for this serie.</p>
+  </div>
 </template>
 
 <script setup>

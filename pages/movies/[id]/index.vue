@@ -31,12 +31,18 @@
           class="flex flex-col items-center gap-2"
         >
           <NuxtImg
+            v-if="cast.profile_path"
             placeholder
             :src="buildImg(cast.profile_path)"
-            alt="cast.name"
+            :alt="cast.name"
             class="w-20 h-20 object-cover rounded-md"
           />
-          <p class="text-xs text-wrap w-min text-center">{{ cast.name }}</p>
+          <p
+            v-if="cast.profile_path"
+            class="text-xs text-wrap w-min text-center"
+          >
+            {{ cast.name }}
+          </p>
         </li>
       </ul>
       <h2
@@ -88,7 +94,7 @@
     </h2>
     <div class="flex gap-4">
       <NuxtLink
-        v-for="recommendation in recommendations.slice(0, 8)"
+        v-for="recommendation in recommendations.slice(0, 6)"
         :key="recommendation.id"
         :to="`/movies/${recommendation.id}`"
         class="flex flex-col gap-2"
@@ -108,7 +114,7 @@
   >
     Lists that include this movie
   </h2>
-  <table class="whitespace-nowrap overflow-auto w-full">
+  <table v-if="lists.length > 0" class="whitespace-nowrap overflow-auto w-full">
     <thead class="text-left border text-green-500">
       <tr>
         <th class="px-2">List</th>
@@ -124,6 +130,9 @@
       </tr>
     </tbody>
   </table>
+  <div v-else class="text-center text-gray-600">
+    <p>No list found for this movie.</p>
+  </div>
 </template>
 
 <script setup>
