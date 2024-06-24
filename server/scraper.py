@@ -30,10 +30,10 @@ def send_request_to_endpoints():
         )
 
         # Use fetch_movie_related_endpoints function to fetch the related endpoints for each movie
-        # if "movie" in endpoint:
-        #     data = response.json()
-        #     for movie in data["results"]:
-        #         fetch_movie_related_endpoints(movie["id"])
+        if "movie" in endpoint:
+            data = response.json()
+            for movie in data["results"]:
+                fetch_movie_related_endpoints(movie["id"])
         if "tv" in endpoint:
             data = response.json()
             for tv in data["results"]:
